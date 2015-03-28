@@ -1,0 +1,61 @@
+
+
+import org.texo.{Plugin, Build}
+
+//import org.texo.plugins.JavaTools  //plugin declarations
+//import org.texo.plugins.ScalaTools
+//import org.texo.plugins.RubyTools
+//import org.texo.plugins.ClojureTools
+//import org.texo.plugins.LifecycleTools
+
+object MyBuild extends Build with ScalaTools with JavaTools with GroovyTools with RubyTools with ClojureTools with LifecycleTools {
+  def commandLine = commandLine("first.exe")
+
+  def commandLine(x: String) = exec(x)
+
+  def doSomethingElse = run(commandLine).andThen(run {
+    println("Foo")
+  })
+
+  val version = 12.0
+
+  //implicit
+  //if groovy folder available, compile, if scala folder available, compile, etc.
+  //scala terminal
+
+
+  scope('default) {
+    sequential {
+      task('compile) = Seq(...)
+      task('scalaconsole)
+    }
+  }
+
+  scope('scala) {
+    scope('integrationtest) {
+      dependencies = Seq()
+      task('movestuff) = {
+        FileSeq(root.dir, "target/**/file.*").filter(_.name == "source").moveTo(System.getProperty("user.home"))
+        FileSeq(root.dir, "target/**/file.*").filter(_.name == "source").moveTo(System.getProperty("user.home"))
+      }
+    }
+  }
+
+  scope('test) {
+    call('scala :: 'integration - test :: 'movestuff)
+  }
+}
+
+
+
+package org.texo.plugins
+
+trait MyPlugin extends Plugin {
+  def foo()
+
+  def bar()
+
+  def baz()
+}
+
+

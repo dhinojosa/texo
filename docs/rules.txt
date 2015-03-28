@@ -1,0 +1,4 @@
+1. Everything is Test Driven
+2. Everything is Documented
+3. Everything should use basic object currency: Lists, Sets, Vectors, Maps, Streams, Strings, Vals
+4. Make it simple
