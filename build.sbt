@@ -4,10 +4,10 @@ version := "1.0-SNAPSHOT"
 
 organization := "org.texo"
 
-scalaVersion := "2.10.3"
+scalaVersion := "2.11.6"
 
-libraryDependencies ++= Seq("org.scalatest" %% "scalatest" % "2.0" % "test",
-                            "com.typesafe.akka" %% "akka-actor" % "2.2.3")
+libraryDependencies ++= Seq("org.scalatest" %% "scalatest" % "2.2.1" % "test",
+                            "com.typesafe.akka" %% "akka-actor" % "2.3.9")
 
 resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
 
